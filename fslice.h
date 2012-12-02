@@ -24,6 +24,7 @@ create <filename>: create a file with specified name.\n"
 #define FSLICE_MSG_CREATE_EXISTS "Error, the specified file already exists.\n"
 #define FSLICE_MSG_CREATE_ERR "Error while creating file.\n"
 #define FSLICE_MSG_DELETE "Attempting to delete file...\n"
+#define FSLICE_MSG_DELETE_NEXISTS "Error, the specified file doesn\'t exist.\n"
 #define FSLICE_MSG_DELETE_ERR "Error while deleting file.\n"
 
 #endif

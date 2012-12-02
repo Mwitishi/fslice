@@ -2,8 +2,6 @@
 
 int main(int argc,char **argv)
 {
-	char *fname;
-
 	FILE *f1;
 
 	//Display name & version
@@ -66,7 +64,23 @@ int main(int argc,char **argv)
 			return 2;
 		}
 
-		
+		//Check if file exists
+		f1=fopen(argv[2],"rb+");
+		if(f1==NULL)
+		{
+			printf(FSLICE_MSG_DELETE_NEXISTS);
+			return 3;
+		}
+
+		//Close file
+		fclose(f1);
+
+		//Delete file
+		if(remove(argv[2])!=0)
+		{
+			printf(FSLICE_MSG_DELETE_ERR);
+			return 4;
+		}
 	}
 
 	return 0;
