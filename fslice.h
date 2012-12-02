@@ -10,8 +10,8 @@
 
 #define FSLICE_COM_HELP "help"
 
-#define FSLICE_MSG_HELP "This program allows you to read and modify files.\n
-			 These are the available commands:
-			 help: display this help"
+#define FSLICE_MSG_HELP "This program allows you to read and modify files.\n\
+These are the available commands:\n\
+help: display this help.\n"
 
 #endif
