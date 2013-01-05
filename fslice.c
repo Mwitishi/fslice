@@ -15,7 +15,11 @@ int main(int argc,char **argv)
     }
 
     //Display program help
-    if(strcmp(argv[1],FSLICE_COM_HELP)==0) printf(FSLICE_MSG_HELP);
+    if(strcmp(argv[1],FSLICE_COM_HELP)==0)
+    {
+        printf(FSLICE_MSG_HELP);
+        return 0;
+    }
 
     //Create new file
     if(strcmp(argv[1],FSLICE_COM_CREATE)==0)
@@ -50,6 +54,8 @@ int main(int argc,char **argv)
 
         //Close file
         fclose(f1);
+
+        return 0;
     }
 
     //Delete existing file
@@ -81,7 +87,10 @@ int main(int argc,char **argv)
             printf(FSLICE_MSG_DELETE_ERR);
             return 4;
         }
+
+        return 0;
     }
 
-    return 0;
+    printf(FSLICE_MSG_INVCOMMAND);
+    return 1;
 }

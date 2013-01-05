@@ -15,6 +15,7 @@
 #define FSLICE_COM_DELETE "delete"
 
 #define FSLICE_MSG_NO_COMMAND "Error, command missing. Write \"%s %s\" for help.\n"
+#define FSLICE_MSG_INVCOMMAND "Error, unable to recognise the issued command.\n"
 #define FSLICE_MSG_HELP "This program allows you to read and modify files.\n\
 These are the available commands:\n\
 help: display this help.\n\
