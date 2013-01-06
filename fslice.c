@@ -167,6 +167,9 @@ int main(int argc,char **argv)
             return 3;
         }
 
+        //Print file size
+        printf(FSLICE_MSG_SIZE,(int)st1.st_size);
+
         //Process the positions, return if not valid
         if(sscanf(argv[4],"%d:%d",&i1,&i2)!=2||i1<0||i2<0
          ||i1>i2||i1>=st1.st_size||i2>=st1.st_size)
@@ -175,8 +178,7 @@ int main(int argc,char **argv)
             return 4;
         }
 
-        //Info about the file
-        printf(FSLICE_MSG_SIZE,(int)st1.st_size);
+        //Check positions
         printf(FSLICE_MSG_POS,i1,i2);
 
         fslice_tbytes=0;
@@ -206,6 +208,57 @@ int main(int argc,char **argv)
 
         //Add newline at the end
         if(strcmp(argv[2],FSLICE_VMODE_FULL)!=0||fslice_tbytes%FSLICE_DISPL_COLS!=0) printf("\n");
+
+        return 0;
+    }
+
+    //Write a particular byte in a file
+    if(strcmp(argv[1],FSLICE_COM_WRITE)==0)
+    {
+        printf(FSLICE_MSG_WRITE);
+
+        //If arguments are missing
+        if(argc<4)
+        {
+            printf(FSLICE_MSG_NO_FILENAME);
+            return 2;
+        }
+
+        //Get stat data, return if file does not exist
+        if(stat(argv[2],&st1)==-1)
+        {
+            printf(FSLICE_MSG_NEXISTS);
+            return 3;
+        }
+
+        //Print file size
+        printf(FSLICE_MSG_SIZE,(int)st1.st_size);
+
+        //Process the positions, return if not valid
+        if(sscanf(argv[3],"%d:%d",&i1,&i2)!=2||i1<0||i2<0
+         ||i2>255)
+        {
+            printf(FSLICE_MSG_INVPOS);
+            return 4;
+        }
+
+        //Check data and position
+        printf(FSLICE_MSG_WRITE_CHECK,i2,i1);
+
+        //Open file
+        f1=fopen(argv[2],"rb+");
+
+        //Write data at position, check for errors
+        fseek(f1,i1,SEEK_SET);
+        if(fwrite(&i2,sizeof(char),1,f1)!=1)
+        {
+            printf(FSLICE_MSG_WRITE_ERR);
+            return 5;
+        }
+
+        //Close file
+        fclose(f1);
+        f1=NULL;
 
         return 0;
     }

@@ -16,11 +16,11 @@ Currently encoded commands:
         from position <start> to <end> of file,
         according to <visualization mode>.
 
-Planned commands:
-
   * "write <filename> <position>:<data>":
         overwrites specified position in file
         with a byte of data (in decimal form).
+
+Planned commands:
 
 Visualization modes:
 

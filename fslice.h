@@ -8,7 +8,7 @@
 #include <sys/types.h>
 
 #define FSLICE_NAME "FSlice by Mwitishi"
-#define FSLICE_VERSION "v0.1"
+#define FSLICE_VERSION "v0.2"
 
 #define FSLICE_BUF_SIZE 20
 #define FSLICE_DISPL_COLS 4
@@ -30,11 +30,12 @@
 #define FSLICE_MSG_INVCOMMAND "Error, unable to recognise the issued command.\n"
 #define FSLICE_MSG_HELP "This program allows you to read and modify files.\n\
 These are the available commands:\n\
-help: display this help.\n\
-create <filename>: create a file with specified name.\n\
-delete <filename>: delete the file with specified name.\n\
-slice <visualization mode> <filename> <start>:<end>: read data from start to end in specified file,\n\
-and print according to visualization mode.\n"
+\"help\": display this help.\n\
+\"create <filename>\": create a file with specified name.\n\
+\"delete <filename>\": delete the file with specified name.\n\
+\"slice <visualization mode> <filename> <start>:<end>\": read data from start to end in specified file,\n\
+and print according to visualization mode.\n\
+\"write <filename> <position>:<data>\": write a byte of data in specified position of a file.\n"
 #define FSLICE_MSG_NO_FILENAME "Error, no filename specified.\n"
 #define FSLICE_MSG_NEXISTS "Error, the specified file doesn\'t exist.\n"
 #define FSLICE_MSG_INVPOS "Error, the specified position is invalid.\n"
@@ -48,5 +49,8 @@ and print according to visualization mode.\n"
 #define FSLICE_MSG_DELETE_ERR "Error while deleting file.\n"
 #define FSLICE_MSG_SLICE "Attempting to slice file...\n"
 #define FSLICE_MSG_SLICE_ERR "Error while reading file.\n"
+#define FSLICE_MSG_WRITE "Attempting to write on file...\n"
+#define FSLICE_MSG_WRITE_CHECK "Writing value %d in position %d.\n"
+#define FSLICE_MSG_WRITE_ERR "Error while writing on file.\n"
 
 #endif
