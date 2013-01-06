@@ -32,15 +32,21 @@
 These are the available commands:\n\
 help: display this help.\n\
 create <filename>: create a file with specified name.\n\
-delete <filename>: delete the file with specified name.\n"
-#define FSLICE_MSG_CREATE "Attempting to create file...\n"
+delete <filename>: delete the file with specified name.\n\
+slice <visualization mode> <filename> <start>:<end>: read data from start to end in specified file,\n\
+and print according to visualization mode.\n"
 #define FSLICE_MSG_NO_FILENAME "Error, no filename specified.\n"
 #define FSLICE_MSG_NEXISTS "Error, the specified file doesn\'t exist.\n"
-#define FSLICE_MSG_INVPOS "Error, the specified position exceeds the file size.\n"
+#define FSLICE_MSG_INVPOS "Error, the specified position is invalid.\n"
 #define FSLICE_MSG_NULL_POINTER "Error, received a NULL pointer.\n"
+#define FSLICE_MSG_SIZE "File size: %d bytes.\n"
+#define FSLICE_MSG_POS "Reading from position %d to %d.\n"
+#define FSLICE_MSG_CREATE "Attempting to create file...\n"
 #define FSLICE_MSG_CREATE_EXISTS "Error, the specified file already exists.\n"
 #define FSLICE_MSG_CREATE_ERR "Error while creating file.\n"
 #define FSLICE_MSG_DELETE "Attempting to delete file...\n"
 #define FSLICE_MSG_DELETE_ERR "Error while deleting file.\n"
+#define FSLICE_MSG_SLICE "Attempting to slice file...\n"
+#define FSLICE_MSG_SLICE_ERR "Error while reading file.\n"
 
 #endif

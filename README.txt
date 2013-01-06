@@ -11,12 +11,12 @@ Currently encoded commands:
 
   * "delete <filename>": attempts to delete an already existing file.
 
-Planned commands:
-
   * "slice <visualization mode> <filename> <start>:<end>":
         shows data read from file <filename>,
         from position <start> to <end> of file,
         according to <visualization mode>.
+
+Planned commands:
 
   * "write <filename> <position>:<data>":
         overwrites specified position in file
