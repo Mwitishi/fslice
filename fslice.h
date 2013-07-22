@@ -2,10 +2,9 @@
 #define FSLICE_H
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdint.h>
+#include <malloc.h>
 #include <sys/stat.h>
-#include <sys/types.h>
 
 #define FSLICE_NAME "FSlice by Mwitishi"
 #define FSLICE_VERSION "v0.2"

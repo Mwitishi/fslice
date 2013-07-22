@@ -9,7 +9,7 @@ int fslice_tbytes;
  *  offset is the position to start reading
  *  after printed bytes exceed maxbytes, stop
  */
-int fslice_print(char *vmode, char *buf, int size, int offset, int maxbytes)
+int fslice_print(char *vmode, uint8_t *buf, int size, int offset, int maxbytes)
 {
     int i1,i2;
 
@@ -25,11 +25,11 @@ int fslice_print(char *vmode, char *buf, int size, int offset, int maxbytes)
     {
         //Print bytes as characters
         if(strcmp(vmode, FSLICE_VMODE_CHAR) == 0)
-            printf("%c", buf[i1]);
+            printf("%c", (char)buf[i1]);
 
         //Print byte values as numbers
         if(strcmp(vmode, FSLICE_VMODE_NUM) == 0)
-            printf("%.3d ", (int)buf[i1]);
+            printf("%.2x ", (uint8_t)buf[i1]);
 
         //Print full format
         if(strcmp(vmode, FSLICE_VMODE_FULL) == 0)
@@ -54,7 +54,7 @@ int fslice_print(char *vmode, char *buf, int size, int offset, int maxbytes)
 int main(int argc, char **argv)
 {
     int i1, i2, i3;
-    char *buf = (char*)malloc(FSLICE_BUF_SIZE);
+    uint8_t *buf = (uint8_t*)malloc(FSLICE_BUF_SIZE);
     FILE *f1 = NULL;
     struct stat st1;
 
@@ -196,7 +196,7 @@ int main(int argc, char **argv)
             //Access correspondent position and fill buffer
             //i3 stores bytes read, if different from FSLICE_BUF_SIZE, EOF was reached
             fseek(f1, i1 + fslice_tbytes, SEEK_SET);
-            i3 = fread(buf, sizeof(char), FSLICE_BUF_SIZE, f1);
+            i3 = fread(buf, 1, FSLICE_BUF_SIZE, f1);
 
             //Close file
             fclose(f1);
