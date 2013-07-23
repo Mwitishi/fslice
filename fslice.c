@@ -29,7 +29,7 @@ int fslice_print(char *vmode, uint8_t *buf, int size, int offset, int maxbytes)
 
         //Print byte values as numbers
         if(strcmp(vmode, FSLICE_VMODE_NUM) == 0)
-            printf("%.2x ", (uint8_t)buf[i1]);
+            printf("%.2x ", buf[i1]);
 
         //Print full format
         if(strcmp(vmode, FSLICE_VMODE_FULL) == 0)
@@ -54,7 +54,7 @@ int fslice_print(char *vmode, uint8_t *buf, int size, int offset, int maxbytes)
 int main(int argc, char **argv)
 {
     int i1, i2, i3;
-    uint8_t *buf = (uint8_t*)malloc(FSLICE_BUF_SIZE);
+    uint8_t buf[FSLICE_BUF_SIZE];
     FILE *f1 = NULL;
     struct stat st1;
 

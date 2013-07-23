@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include <malloc.h>
+#include <string.h>
+#include <sys/types.h>
 #include <sys/stat.h>
 
 #define FSLICE_NAME "FSlice by Mwitishi"
